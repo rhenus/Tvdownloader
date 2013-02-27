@@ -4,7 +4,7 @@ require Exporter;
 @ISA = qw(Exporter);
 @EXPORT = qw (Get_config Get_config_file);
 @EXPORT_OK= qw ();
-
+use File::Path qw(make_path);
 our $g_name;
 our $g_season;
 our $g_episode;
@@ -153,7 +153,7 @@ sub Get_config_file
 	#print $g_episode;
 	if (! -e $g_path)
 	{
-		mkdir ($g_path,0777) or $!;
+		make_path $g_path or die $!;
 	}
 	close SOURCE;
 	print "GetConfig::Get_config_file Finish read ${g_name} config\n"
