@@ -69,6 +69,7 @@ sub Get_config_file
 	print "GetConfig::Get_config_file configpath @configfile\n";
 	open (SOURCE,"@{configfile}") or die;
 	
+	
 	while (defined ($eachline=<SOURCE>)) 
 	{
 		if ($eachline =~ /^\[NAME\](.*)$/)
